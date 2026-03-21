@@ -1,0 +1,19 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "model": "Toyota",
+      "year": 2018
+    },
+    {
+      "id": 2,
+      "model": "BMW",
+      "year": 2021
+    },
+    {
+      "id": 4,
+      "model": "Chevrolet",
+      "year": 2019
+    }
+  ]
+}

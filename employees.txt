@@ -1,0 +1,4 @@
+1,Arman Petrosyan,Developer,250000
+2,Ani Sahakyan,Designer,180000
+3,Karen Davtyan,Manager,500000
+4,Lilit Sargsyan,HR,210000

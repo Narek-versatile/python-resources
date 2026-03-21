@@ -1,0 +1,137 @@
+Թեստի նմուշ
+1․ JSON ֆայլը կարող է պահել՝
+a) Միայն տողեր
++ b) Կառուցվածքային տվյալներ (dict, list) 
+c) Միայն թվեր
+d) Միայն class օբյեկտ
+
+2․  OOD նշանակում է՝
+* a) Object Oriented Design
+b) Object Ordered Data
+c) Oriented Object Diagram
+d) Object Operation Design
+
+3. except բլոկում առանց exception type նշելու ինչ է անում։
+a) Չի բռնում ոչինչ
+b) Բռնում է միայն SyntaxError
+* c) Բռնում է բոլոր exception-ները
+d) Բռնում է միայն ValueError
+
+4. Ինչի՞ համար է օգտագործվում seek() մեթոդը
+a) Ֆայլը փակելու համար
+* b) Ֆայլում դիրքը փոխելու համար
+c) Նոր ֆայլ ստեղծելու համար
+d) Ֆայլը ջնջելու համար
+
+
+5. Ստեղծել min_args(n) դեկորատոր, որը պահանջում է առնվազն n արգումենտ։ 
+Հակառակ դեպքում վերադարձնել "Not enough arguments"։
+
+
+def min_args(n):
+    
+    def decorator(func):
+        def inner(*args, **kwargs):
+            if (len(args) + len(kwargs))<n:
+                raise ValueError('not enough args')
+            x = func(*args, **kwargs)
+            return x
+        return inner
+    return decorator
+
+
+@min_args(2)
+def printer(*args):
+    print(sum(args))
+
+
+printer(1)
+
+6.  Տրված է employees.txt ֆայլը հետևյալ ձևաչափով ID,Employee name, Position, Salary
+Տպել բոլոր աշխատողներին որոնց salary >= 200000
+Փոխել 3 id ունեցող աշխատողի աշխատավարձը 500000 և գրել ֆայլում
+
+with open("employees.txt", "r+") as fff:
+    lines = fff.readlines()
+    fff.seek(0)
+
+    for i in lines:
+        temp = i.strip().split(",")
+        if int(temp[3]) > 200000:
+            print(temp)
+
+        if temp[0] == "3":
+            temp[3] = "500000"
+
+        fff.write(",".join(temp) + "\n")
+
+
+7. Տրված է cars.json ֆայլը հետևյալ ձևաչափով․
+{
+“cars”: 
+[
+ {"id": 1, "model": "Toyota", "year": 2018},
+ {"id": 2, "model": "BMW", "year": 2021},
+ {"id": 3, "model": "Kia", "year": 2016}
+]
+}
+
+Ավելացնել    {"id": 4, "model": "Chevrolet", "year": 2019} մեքենան
+Ջնջել Kia մեքենային ֆայլից
+
+
+import json
+
+with open("cars.json", "r+") as fff:
+    data = json.load(fff)
+    data["cars"].append({"id": 4, "model": "Chevrolet", "year": 2019})
+    new = []
+    for i in data["cars"]:
+        if i["model"] == "Kia":
+            continue
+        new.append(i)
+
+    data["cars"] = new
+    fff.seek(0)
+    json.dump(data, fff, indent=2)
+    fff.truncate()
+
+
+
+8. Ստեղծել Product class․
+Ատրիբուտներ
+name
+price
+quantity
+Մեթոդներ
+total_price() → վերադարձնում է ընդհանուր արժեքը (price * quantity)
+is_available() → վերադարձնում է True, եթե quantity > 0, հակառակ դեպքում False
+
+skipped
+
+
+9.  Ի՞նչ կտպվի հետևյալ կոդի կատարման ընթացքում, error-ի դեպքում նշել։
+try:
+    x = {"a": 1}
+    print(x["b"])
+except KeyError:
+    print("Missing key")
+except Exception:
+    print("Other error")
+
+Answer: Missing key
+
+10.  Ի՞նչ կտպվի հետևյալ կոդի կատարման ընթացքում, error-ի դեպքում նշել։
+class Rectangle:
+    def __init__(self, w, h):
+        self.w = w
+        self.h = h
+
+    def area(self):
+        return self.w * self.h
+
+r = Rectangle(4, 4)
+print(r.area())
+
+Answer: 16
+
