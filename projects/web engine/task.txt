@@ -1,0 +1,171 @@
+Basic Search Engine
+
+Project Overview
+Develop a Basic Google Search Engine that can index a collection of web pages and allow users to perform keyword-based searches to retrieve relevant results. This project aims to introduce students to fundamental concepts of search engines, including web page indexing, keyword extraction, search algorithms, and result ranking.
+Objectives
+By completing this project, students will:
+Understand Search Engine Fundamentals: Learn how search engines index and retrieve information.
+Implement Text Processing: Utilize Python for text parsing and processing.
+Build Data Structures for Indexing: Create efficient data structures to store and manage indexed data.
+Develop Search Algorithms: Implement algorithms to search and rank web pages based on user queries.
+Handle File Operations: Manage reading from and writing to files for indexing web pages.
+Apply Object-Oriented Programming (OOP): Design classes and objects to structure the search engine components.
+Enhance Problem-Solving Skills: Tackle real-world problems related to information retrieval and data management.
+Project Components
+Indexer: Processes web pages to extract and store keywords.
+Search Engine: Accepts user queries and retrieves relevant web pages.
+Ranker: Sorts search results based on relevance.
+Project Structure
+The project will be organized into the following Python modules/files:
+search_engine.py: Contains the main classes and methods for indexing and searching.
+web_pages/: A directory containing text files that simulate web pages.
+main.py: Provides a user interface to interact with the search engine.
+requirements.txt: Lists any external Python packages needed (optional).
+Detailed Description
+1. Directory Setup
+Create a project directory with the following structure:
+basic_google_search/
+│
+├── search_engine.py
+├── main.py
+├── web_pages/
+│   ├── page1.txt
+│   ├── page2.txt
+│   └── page3.txt
+└── README.md
+
+
+search_engine.py: Implements the core functionality of the search engine.
+main.py: Contains the command-line interface for user interaction.
+web_pages/: Stores text files representing web pages to be indexed.
+README.md: Provides an overview and instructions for the project.
+2. Creating Simulated Web Pages
+Populate the web_pages/ directory with .txt files. Each file represents a web page and contains plain text.
+Example Files:
+page1.txt:
+Python is a widely used high-level programming language for general-purpose programming.
+Created by Guido van Rossum and first released in 1991, Python has a design philosophy that emphasizes code readability.
+
+page2.txt:
+JavaScript is a programming language that conforms to the ECMAScript specification.
+JavaScript is high-level, often just-in-time compiled, and multi-paradigm. It has dynamic typing and prototype-based object orientation.
+
+
+
+page3.txt:
+HTML (HyperText Markup Language) is the standard markup language for documents designed to be displayed in a web browser.
+It can be assisted by technologies such as Cascading Style Sheets (CSS) and scripting languages such as JavaScript.
+
+Ensure that each .txt file contains meaningful content related to its topic.
+3. Implementing the Search Engine (search_engine.py)
+This module contains the BasicSearchEngine class responsible for indexing web pages and handling search queries.
+Explanation of search_engine.py:
+__init__ Method: Initializes two dictionaries:
+index: Maps each word to a list of web page filenames containing that word.
+web_pages: Stores the content of each web page.
+index_web_pages Method:
+Iterates through all .txt files in the specified folder.
+Reads and processes each file, converting content to lowercase and extracting words using regular expressions.
+Updates the index and web_pages dictionaries accordingly.
+Handles potential errors like missing folders.
+search Method:
+Takes a user query, splits it into individual words, and searches the index for these words.
+Maintains a results dictionary to track the number of query words found in each web page.
+Sorts the results based on relevance scores.
+display_search_results Method:
+Formats and displays the sorted search results to the user.
+Indicates when no results are found.
+# search_engine.py
+
+import os
+import re
+
+class BasicSearchEngine:
+    def __init__(self):
+        """ Initializes the search engine with empty indexes. """
+        pass
+
+
+    def index_web_pages(self, folder_path):
+        """
+        Indexes all text files in the specified folder.
+
+        Parameters:
+            folder_path (str): The path to the folder containing web page    
+            text files. """
+        pass
+       
+
+
+    def search(self, query):
+        """
+        Searches for web pages containing the query words.
+
+        Parameters:
+            query (str): The search query entered by the user.
+
+        Returns:
+            List of tuples containing web page filenames and their relevance 
+            scores."""
+        pass
+
+
+
+
+    def display_search_results(self, sorted_results, query):
+        """
+        Displays the search results to the user.
+
+        Parameters:
+            sorted_results (list): List of tuples containing web page 
+            filenames and scores.
+            query (str): The original search query.
+        """
+        pass
+
+
+4. Creating the User Interface (main.py)
+This script provides a command-line interface for users to interact with the search engine. Users can index web pages, perform searches, and view results.
+# main.py
+
+from search_engine import BasicSearchEngine
+def display_menu():
+    """Displays the main menu options to the user."""
+    print("\n===== Basic Google Search Engine =====")
+    print("1) Index web pages")
+    print("2) Search")
+    print("3) View file content")
+    print("4) Exit")
+    print("======================================")
+
+def run_search_engine():
+    """ Runs the search engine application, handling user input and 
+        actions. """
+    pass
+
+
+Explanation of main.py:
+display_menu Function: Presents the user with three options:
+Index Web Pages: Indexes all web pages in the specified folder.
+Search: Allows the user to enter a search query and view results.
+Exit: Closes the application.
+run_search_engine Function:
+Initializes an instance of BasicSearchEngine.
+Sets a default folder path (web_pages) where the web page text files are located.
+Enters a loop to continuously display the menu and handle user choices.
+Option 1: Prompts the user to enter the folder path for indexing. Defaults to web_pages if no input is provided.
+Option 2: Prompts the user to enter a search query and displays the search results.
+Option 3: View File Content
+Option 4: Exits the application.
+Handles invalid menu choices gracefully.
+__main__ Block: Ensures that the run_search_engine function is called when the script is executed directly.
+5. Running the Search Engine
+Prepare the Environment:
+Ensure you have Python installed (preferably Python 3.6 or higher).
+Navigate to the project directory in your terminal.
+Create Web Pages:
+Inside the web_pages/ directory, create several .txt files with meaningful content as described earlier.
+Interact with the Menu:
+Option 1: Index web pages by specifying the path to the web_pages/ folder.
+Option 2: Enter search queries to retrieve relevant web pages.
+Option 3: Exit the application.
