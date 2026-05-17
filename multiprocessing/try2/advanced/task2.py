@@ -16,7 +16,7 @@ if __name__ == "__main__":
     # print(passwords)
     print(f"\n\nthere are {len(passwords)} passwords generated")
     
-    ##METHOD 1 -> 0.0001035 seconds
+    ##METHOD 1 -> 0.0001035 seconds for 1000
     x = time.perf_counter()
     hashed = []
     for password in passwords:
@@ -26,7 +26,7 @@ if __name__ == "__main__":
     print(f"Method 1 took {y-x:.4} seconds")
 
 
-    ##METHOD 2 -> 0.6377 seconds
+    ##METHOD 2 -> 0.6377 seconds for 1000
     # x = time.perf_counter()
     # with concurrent.futures.ProcessPoolExecutor() as exe:
     #     result = exe.map(hash, passwords)
